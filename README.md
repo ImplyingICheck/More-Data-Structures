@@ -1,17 +1,34 @@
-# Python Project Template
+# More Data Structures
+
+A collection of data structures written in pure python. The package is light (no dependencies) and user-friendly by way of a consistent API.
+
+## Implemented
+
+- Trie
+
+## Inspiration
+While working on various side projects, I repeatedly ran into situations where I wanted to test various data structures. While PyPi has plenty of implementations, each follows differing API structures, requiring the user to read documentation for every single data structure to be tested. Additionally, many of the packages had external dependencies, which would translate to more one-off dependencies for the final project.
 
 ## Purpose
-This is a base template used for python projects. It uses a 'src' structure and contains commonly used directories and files.
+This collection of data structures is primarily intended to be used for prototyping (and as a learning exercise).
 
-It is meant to be portable and set up tools to improve code health.
+Tests will be implemented to ensure consistent behaviour. 
 
-## Setup
-This project template can be used as is but for further setup and system integration, a setup script is included in `/dev/`. Depending on the coding environment, `setup_dev_dependencies.sh` or `SetupDevDependencies.ps1` can be used. Both scripts have the same behaviour, which is as follows:
-1. Update pip
-2. Install [the Poetry package](https://python-poetry.org/), a dependency management and packaging tool for Python
-3. Install the pre-commit hook to the current .git.
+As of version 0.1.0, the API is not stable. However, a stable API will be established in the future.
 
-## Supported Development Environment
-This project template is IDE agnostic, it can be easily ported into any development environment.
+## Goals
 
-With that said, the template includes a `.idea` directory, used by IntelliJ IDEs. This folder contains code style defaults which are in line with the `.pylintrc` file. If one is not using an IntelliJ IDE or wishes to set up their own project defaults, the `.idea` directory can be deleted.
+- [] Implement SkipList
+- [] Implement RedBlackTree
+- [] Implement AVL Tree
+
+Other data structures to be determined...
+
+## Stretch Goals
+These goals may or may not come into fruition (largely dependent on time available and learning goals).
+- [] Rewrite in Rust
+- [] Create python wrapper for Rust implementation
+
+## License
+
+This project is licensed under GPLv3 and MIT license. Adapters are free to choose their preference.

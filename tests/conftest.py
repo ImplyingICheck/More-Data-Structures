@@ -1,0 +1,54 @@
+#  Copyright 2023 The More Data Structures Authors. All Rights Reserved.
+#
+#  This file is part of More Data Structures.
+#
+#  More Data Structures is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by the Free
+#  Software Foundation, either version 3 of the License, or (at your option) any
+#  later version.
+#
+#  More Data Structures is distributed in the hope that it will be useful, but
+#  WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+#  FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+#  details. You should have received a copy of the GNU General Public License
+#  along with More Data Structures. If not, see <https://www.gnu.org/licenses/>.
+#
+#  Copyright (c) 2023 More Data Structures Authors
+#
+#  Permission is hereby granted, free of charge, to any person obtaining a copy
+#  of this software and associated documentation files (the "Software"), to deal
+#  in the Software without restriction, including without limitation the rights
+#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#  copies of the Software, and to permit persons to whom the Software is
+#  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in
+#  all copies or substantial portions of the Software.
+#
+#  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+#  SOFTWARE.
+"""A file containing fixtures exported automatically by pytest for every suite
+built in this directory."""
+
+import pytest
+
+
+def pytest_addoption(parser):
+  parser.addoption(
+      '--runslow', action='store_true', default=False, help='run slow tests'
+  )
+
+
+def pytest_collection_modifyitems(config, items):
+  if config.getoption('--runslow'):
+    # --runslow given in cli: do not skip slow tests
+    return
+  skip_slow = pytest.mark.skip(reason='need --runslow option to run')
+  for item in items:
+    if 'slow' in item.keywords:
+      item.add_marker(skip_slow)
